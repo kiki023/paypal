@@ -1,0 +1,6 @@
+echo hello and welcome
+read name
+echo enter file name
+read file
+touch $file
+cp $file $file.txt
