@@ -2,7 +2,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "3.0"
+      version = "3.70"
     }
     random = {
       source  = "hashicorp/random"
@@ -22,6 +22,8 @@ terraform {
 
 provider "aws" {
         region = "us-west-1"
+        access_key = "AWS_ACCESS_KEY_ID"
+	      secret_key = "Secret_Access_Key"
 }
 
 resource "aws_instance" "ec2" {
