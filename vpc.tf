@@ -18,10 +18,10 @@ resource "aws_vpc" "demo" {
 resource "aws_subnet" "demo" {
   count = 2
 
-  availability_zone       = data.aws_availability_zones.available.names[count.index]
+  availability_zone       = aws_availability_zones.available.names[count.index]
   cidr_block              = "10.0.${count.index}.0/24"
   map_public_ip_on_launch = true
-  vpc_id                  = data.aws_vpc.demo.id
+  vpc_id                  = aws_vpc.demo.id
 
   tags = tomap({
     "Name" = "terraform-eks-demo-node",
