@@ -89,3 +89,7 @@ jobs:
     - name: Terraform Apply
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       run: terraform apply -auto-approve
+      
+      # Generates an execution plan for Terraform
+    - name: Terraform destroy
+      run: terraform destroy -auto-approve
