@@ -1,14 +1,12 @@
-# IAC-Provisioning
+IAC-Provisioning-Github Actions
+----------------------------------------------------------------------------------------------------------------
 
-
-Iac-Kubernetes-AwsCloud
 This Project tends to provision EKS Cluster on AWS Cloud while using Git Actions as an Integrating tool and Terraform as IAC Tool
 
-A GitHub account
-
-A Terraform Cloud account
-
-An AWS account and AWS Access Credentials
+> Requirements: 
+>A GitHub account
+>A Terraform Cloud account
+>An AWS account and AWS Access Credentials
 
 If you don't have AWS Access Credentials, create your AWS Access Key ID and Secret Access Key by navigating to your IAM security credentials in the AWS console. Click "Create access key" here and download the file. This file contains your access credentials.
 
