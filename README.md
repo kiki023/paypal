@@ -4,11 +4,20 @@
 Iac-Kubernetes-AwsCloud
 This Project tends to provision EKS Cluster on AWS Cloud while using Git Actions as an Integrating tool and Terraform as IAC Tool
 
+A GitHub account
+
+A Terraform Cloud account
+
+An AWS account and AWS Access Credentials
+
+If you don't have AWS Access Credentials, create your AWS Access Key ID and Secret Access Key by navigating to your IAM security credentials in the AWS console. Click "Create access key" here and download the file. This file contains your access credentials.
+
+In the End, You can track the status of the apply job through GitHub Actions or Terraform Cloud.
+
 ------------------------------------------------------------------------------------------------------------------
 
-Terraform Installation And Setup In AWS EC2 Linux Instances
-
-Using Terraform to provision a fully managed Amazon EKS Cluster
+Terraform Installation And Setup In AWS EC2 Linux Instances CLI
+------------------------------------------------------------------------------------------------------------------
 
 Prerequisite
 
@@ -29,14 +38,13 @@ Administrator Access
 Attach IAM Role to EC2 Instance.
 
 # Install Terraform
+---------------------------------------------------------------------------------------------------------------------
 
 $ sudo adduser eksadmin
 
 $ sudo echo "eksadmin  ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/eksadmin
 
 $ sudo su - eksadmin
-
-$ git clone https://github.com/kiki023/IAC-Provisioning
 
 $ cd /opt
 
@@ -80,29 +88,9 @@ $ terraform apply --auto-approve
 
 $ terraform destroy --auto-approve
 
-## create the kubeconfig file  
+------------------------------------------------------------------------------------------------------
+ In this repository:
+ main.tf file: Replace line 25 with your appropriate server path
+ variables.tf file: Replace line 9 with your servers existing key file
 
-$ mkdir .kube/ 
-
-$ vi .kube/config
-
-$ kubectl get pod
-
-$ #!/bin/bash 
-
-$ sh iam-authenticator.sh 
-
-$ kubectl get pod
-
-## deploy cluster auto scaler
-
-$ kubectl apply -f clusterautoscaler.yml
-
-##  Destroy Infrastructure  
-
-$ terraform destroy --auto-approve 
-
-EKS Getting Started Guide Configuration
-
-This is the full configuration from https://www.terraform.io/docs/providers/aws/guides/eks-getting-started.html
 
