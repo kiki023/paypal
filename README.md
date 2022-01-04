@@ -38,59 +38,23 @@ $ sudo su - eksadmin
 
 $ git clone https://github.com/kiki023/IAC-Provisioning
 
-$ cd eks-terraform-setup
+$ cd /opt
 
-install terraform using a bash shell script
-
-$ sh terraform-install.sh
-
-# OR install terraform by running the commands below
-
-$ wget https://releases.hashicorp.com/terraform/0.12.26/terraform_0.12.26_linux_amd64.zip
+$ wget https://releases.hashicorp.com/terraform/1.1.0/terraform_0.12.26_linux_amd64.zip
 
 $ sudo unzip terraform_0.12.26_linux_amd64.zip -d /usr/local/bin/
 
-# Export terraform binary path temporally
+Export terraform binary path temporally
 
 $ export PATH=$PATH:/usr/local/bin
 
-# Add path permanently for current user.By Exporting path in .bashrc file at end of file
+Add path permanently for current user.By Exporting path in .bashrc file at end of file
 
-$ vi .bashrc
-
-   export PATH="$PATH:/usr/local/bin"
-   
-# Source .bashrc to reflect for current session
-
-$ source ~/.bashrc  
-
-$ sudo yum install wget unzip -y
-
-$ wget https://releases.hashicorp.com/terraform/0.12.26/terraform_0.12.26_linux_amd64.zip
-
-$ sudo unzip terraform_0.12.26_linux_amd64.zip -d /usr/local/bin/
-
-# Export terraform binary path temporally
-
-$ export PATH=$PATH:/usr/local/bin
-
-# Add path permanently for current user.By Exporting path in .bashrc file at end of file.
-
-$ vi .bashrc
+$ vi ~/.bashrc
 
    export PATH="$PATH:/usr/local/bin"
    
-# Source .bashrc to reflect for current session
-
-$ source ~/.bashrc  
-
-Clone terraform scripts
-
-$ git clone https://github.com/kiki023/IAC-Provisioning
-
-$ cd eks-terraform-setup
-
-Update Your Key Name in variables.tf file before executing terraform script.
+Source .bashrc to reflect for current session
 
 Infrastructure As A Code using Terraform
 
@@ -136,15 +100,9 @@ $ kubectl apply -f clusterautoscaler.yml
 
 ##  Destroy Infrastructure  
 
-```sh
 $ terraform destroy --auto-approve 
 
 EKS Getting Started Guide Configuration
 
 This is the full configuration from https://www.terraform.io/docs/providers/aws/guides/eks-getting-started.html
 
-See that guide for additional information.
-
-NOTE: This full configuration utilizes the Terraform http provider to call out to icanhazip.com to determine your local workstation external IP for easily configuring EC2 Security Group access to the Kubernetes servers. Feel free to replace this as necessary.
-
-kubectl create deployment autoscaler-demo --image=nginx kubectl get pods --all-namespaces | grep Running | wc -l kubectl get nodes -o yaml | grep pods kubectl scale deployment autoscaler-demo --replicas=20 https://docs.aws.amazon.com/eks/latest/userguide/install-aws-iam-authenticator.html aws-iam-authenticator help
