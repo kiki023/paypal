@@ -84,13 +84,15 @@ $ terraform plan
 
 $ terraform apply --auto-approve
 
-##  Destroy Infrastructure  
+# Destroy Infrastructure  
 
 $ terraform destroy --auto-approve
 
 ------------------------------------------------------------------------------------------------------
  In this repository:
+ 
  main.tf file: Replace line 25 with your appropriate server path
+ 
  variables.tf file: Replace line 9 with your servers existing key file
 
 
