@@ -22,7 +22,7 @@ terraform {
 
 provider "aws" {
         region = "us-west-1"
-        shared_credentials_file = "~/.aws/credentials"
+        shared_credentials_file = "~/eksadmin/.aws/credentials"
 }
 
 resource "aws_instance" "ec2" {
