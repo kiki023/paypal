@@ -46,13 +46,13 @@ name: 'Terraform'
 
 on:
   push:
-    branches:
+   branches:
     - main
   pull_request:
 
 jobs:
   terraform:
-    - name: 'Terraform'
+    name: 'Terraform'
     runs-on: ubuntu-latest
     environment: production
 
