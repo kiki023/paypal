@@ -40,8 +40,8 @@ data "kubectl_file_documents" "argocd" {
 }
 
 resource "kubectl_manifest" "namespace" {
-    count     = length(data.kubectl_file_documents.namespace.documents)
-    yaml_body = element(data.kubectl_file_documents.namespace.documents, count.index)
+    for_each     = data.kubectl_file_documents.namespace.manifests
+    yaml_body = each.value
     override_namespace = "argocd"
 }
 
