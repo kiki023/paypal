@@ -1,5 +1,5 @@
 data "kubectl_file_documents" "nginx2" {
-    content = file("../nginx2.yaml")
+    content = file("./nginx2.yaml")
 }
 
 resource "kubectl_manifest" "nginx2" {
