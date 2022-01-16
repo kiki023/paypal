@@ -2,16 +2,11 @@
 # Provider Configuration
 #
 provider "kubectl" {
-  host                   = data.aws_eks_cluster.terraform-eks-demo-cluster.endpoint
-  cluster_ca_certificate = base64decode(data.aws_eks_cluster.terraform-eks-demo-cluster.certificate_authority.0.data)
+ host                   = data.terraform_eks-demo-cluster.demo-cluster.endpoint
+  cluster_ca_certificate = base64decode(data.terraform-eks-demo-cluster.demo-cluster.certificate_authority.0.data)
+   token                  = data.terraform-eks-demo-cluster_auth.demo-cluster.token
+    load_config_file       = false
 
-  exec {
-      api_version = "client.authentication.k8s.io/v1alpha1"
-      args        = ["eks", "get-token", "--cluster-name", data.aws_eks_cluster.cluster.id]
-      command     = "aws"
-    }
-
-  load_config_file       = false
 }
 
 # provider "aws" {
