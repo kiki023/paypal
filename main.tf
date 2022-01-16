@@ -9,14 +9,6 @@ terraform {
   }
 }
 
-  cloud {
-    organization = "LoveChi"
-
-    workspaces {
-      name = "gh-actions-dotpay"
-    }
-  }
-
 provider "aws" {
         region = "us-west-1"
         shared_credentials_file = "~/eksadmin/.aws/credentials"
