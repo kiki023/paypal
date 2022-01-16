@@ -49,7 +49,7 @@ resource "aws_security_group" "demo-cluster" {
   tags = {
     Name = "terraform-eks-demo"
   }
-}
+
 
 resource "aws_security_group_rule" "demo-cluster-ingress-workstation-https" {
   cidr_blocks       = [local.workstation-external-cidr]
