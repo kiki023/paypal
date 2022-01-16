@@ -39,14 +39,14 @@ resource "aws_security_group" "demo-cluster" {
   vpc_id      = aws_vpc.demo.id
   }
 
-  egress {
+egress {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags = {
+tags = {
     Name = "terraform-eks-demo"
   }
 
