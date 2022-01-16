@@ -30,27 +30,12 @@ resource "aws_instance" "ec2" {
     Envrionment = "production"
   }
 }
-
-data "kubectl_file_documents" "namespace" {
-    content = file("./namespace.yaml")
-} 
-
-data "kubectl_file_documents" "argocd" {
-    content = file("./install.yaml")
+data "kubectl_path_documents" "docs" {
+    pattern = "./manifests/*.yaml"
 }
 
-resource "kubectl_manifest" "namespace" {
-    for_each     = data.kubectl_file_documents.namespace.manifests
+resource "kubectl_manifest" "test" {
+    for_each  = toset(data.kubectl_path_documents.docs.documents)
     yaml_body = each.value
-    override_namespace = "argocd"
-}
-
-resource "kubectl_manifest" "argocd" {
-    depends_on = [
-      kubectl_manifest.namespace,
-    ]
-    count     = length(data.kubectl_file_documents.argocd.documents)
-    yaml_body = element(data.kubectl_file_documents.argocd.documents, count.index)
-    override_namespace = "argocd"
 }
 
