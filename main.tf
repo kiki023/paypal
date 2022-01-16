@@ -24,11 +24,11 @@ resource "aws_instance" "ec2" {
 }
 
 data "kubectl_file_documents" "namespace" {
-    content = file("../namespace.yaml")
+    content = file("./namespace.yaml")
 } 
 
 data "kubectl_file_documents" "argocd" {
-    content = file("../argocd.yaml")
+    content = file("./argocd.yaml")
 }
 
 resource "kubectl_manifest" "namespace" {
