@@ -38,7 +38,6 @@ resource "aws_security_group" "demo-cluster" {
   description = "Cluster communication with worker nodes"
   vpc_id      = aws_vpc.demo.id
   
-
   egress {
     from_port   = 0
     to_port     = 0
@@ -49,6 +48,7 @@ resource "aws_security_group" "demo-cluster" {
 tags = {
     Name = "terraform-eks-demo"
   }
+}
 
 resource "aws_security_group_rule" "demo-cluster-ingress-workstation-https" {
   cidr_blocks       = [local.workstation-external-cidr]
