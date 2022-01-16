@@ -28,7 +28,7 @@ data "kubectl_file_documents" "namespace" {
 } 
 
 data "kubectl_file_documents" "argocd" {
-    content = file("./argocd.yaml")
+    content = file("/argocd.yaml")
 }
 
 resource "kubectl_manifest" "namespace" {
