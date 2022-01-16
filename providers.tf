@@ -1,8 +1,8 @@
-data "aws_eks_cluster" "cluster" {
+data "aws_eks_cluster" "demo" {
   name = var.cluster-name
 }
 
-data "aws_eks_cluster_auth" "cluster" {
+data "aws_eks_cluster_auth" "demo" {
   name = var.cluster-name
 
 }
@@ -10,8 +10,8 @@ data "aws_eks_cluster_auth" "cluster" {
 
 provider "kubernetes" {
   host                   = data.aws_eks_cluster.cluster.endpoint
-  cluster_ca_certificate = base64decode(data.aws_eks_cluster.cluster.certificate_authority.0.data)
-  token                  = data.aws_eks_cluster_auth.cluster.token
+  cluster_ca_certificate = base64decode(data.aws_eks_cluster.demo.certificate_authority.0.data)
+  token                  = data.aws_eks_cluster_auth.demo.token
   insecure               = false
   config_path            = "./${local.cluster_name}-config" # This must match the module input
 }
