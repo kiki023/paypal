@@ -16,7 +16,6 @@ terraform {
       name = "gh-actions-dotpay"
     }
   }
-}
 
 provider "aws" {
         region = "us-west-1"
