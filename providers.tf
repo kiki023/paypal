@@ -4,10 +4,7 @@ data "aws_eks_cluster" "cluster" {
 
 data "aws_eks_cluster_auth" "cluster" {
   name = var.cluster-name
-}
 
-provider "aws" {
-  region = var.region
 }
 
 
