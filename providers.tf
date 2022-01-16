@@ -1,12 +1,22 @@
-#
-# Provider Configuration
-#
-provider "kubectl" {
- host                   = data.terraform_eks-demo-cluster.demo-cluster.endpoint
-  cluster_ca_certificate = base64decode(data.terraform-eks-demo-cluster.demo-cluster.certificate_authority.0.data)
-   token                  = data.terraform-eks-demo-cluster_auth.demo-cluster.token
-    load_config_file       = false
+data "aws_eks_cluster" "cluster" {
+  name = var.cluster-name
+}
 
+data "aws_eks_cluster_auth" "cluster" {
+  name = var.cluster-name
+}
+
+provider "aws" {
+  region = var.region
+}
+
+
+provider "kubernetes" {
+  host                   = data.aws_eks_cluster.cluster.endpoint
+  cluster_ca_certificate = base64decode(data.aws_eks_cluster.cluster.certificate_authority.0.data)
+  token                  = data.aws_eks_cluster_auth.cluster.token
+  insecure               = false
+  config_path            = "./${local.cluster_name}-config" # This must match the module input
 }
 
 # provider "aws" {
