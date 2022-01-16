@@ -1,21 +1,12 @@
-data "aws_eks_cluster" "demo" {
-  name = var.cluster-name
-}
-
-data "aws_eks_cluster_auth" "demo" {
-  name = var.cluster-name
-
-}
-
-
 provider "kubernetes" {
-  host                   = data.aws_eks_cluster.cluster.endpoint
-  cluster_ca_certificate = base64decode(data.aws_eks_cluster.demo.certificate_authority.0.data)
-  token                  = data.aws_eks_cluster_auth.demo.token
-  insecure               = false
-  config_path            = "./${local.cluster_name}-config" # This must match the module input
+  host                   = var.cluster_endpoint
+  cluster_ca_certificate = base64decode(var.cluster_ca_cert)
+  exec {
+    api_version = "client.authentication.k8s.io/v1alpha1"
+    args        = ["eks", "get-token", "--cluster-name", var.cluster_name]
+    command     = "aws"
+  }
 }
-
 # provider "aws" {
 #  region  = "us-west-1"
 # }
