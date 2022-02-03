@@ -5,9 +5,9 @@ variable "cluster-name" {
   default = "terraform-eks-demo"
   type    = string
 }
-variable "key_pair_name" {
-  default = "love23"
-}
+//data "key_pair_name" {
+  //default = "2022"
+//}
 variable "eks_node_instance_type" {
   default = "t2.medium"
 }
