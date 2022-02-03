@@ -99,7 +99,7 @@ resource "aws_eks_node_group" "demo" {
   subnet_ids      = aws_subnet.demo[*].id
   instance_types = [var.eks_node_instance_type]
   remote_access{
-      ec2_ssh_key = var.key_pair_name
+      key_pair = var.key_pair_name
   }
 
 
