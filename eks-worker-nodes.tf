@@ -118,5 +118,5 @@ resource "aws_eks_node_group" "demo" {
 }
 resource "aws_key_pair" "deployer" {
   key_name   = "2022"
-  public_key = ${{ secrets.AWS_PUBLIC_KEY }}
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC75EQOHWoSpOuiWYureIl4kUz6qd7/jNLkfMkMn6Y9k6sOi4LOKHHXuoJBWcHXcUqiEmEd3Py3ZwQe/obXe7S0u43QYwZl08/y47KsFflljgYNZ3plNKVdPL9aJtplF4Ayw/vVfSbU6vJDxVA0qdbAjcaaPH3Gy+envUffXc+Lm+6eTkbPJq5e2N875vaM4cXKJWYnosbm7X+GM1S7whLSmGctmIXJg0OhIH+xhM2yVKTlqdfgkglewhUQdwXm5w3O807iNzG3oO6WpX/2tSax71QL58gK7XhDN/KEJqMLwpCcURx44ZnpVKtrxqiUYf2ycQcJNT+etRDrYHdRwEqF 2022 "
 }
