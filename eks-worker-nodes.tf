@@ -98,9 +98,9 @@ resource "aws_eks_node_group" "demo" {
   node_role_arn   = aws_iam_role.demo-node.arn
   subnet_ids      = aws_subnet.demo[*].id
   instance_types = [var.eks_node_instance_type]
-  //remote_access{
-      //key_name = 2022
-  //}
+  remote_access{
+      key_name = 2022
+  }
 
 
   scaling_config {
@@ -116,7 +116,7 @@ resource "aws_eks_node_group" "demo" {
     aws_iam_role_policy_attachment.demo-node-AmazonEC2ContainerRegistryReadOnly,
   ]
 }
-resource "aws_key_pair" "deployer" {
-  key_name   = "work"
-  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC75EQOHWoSpOuiWYureIl4kUz6qd7/jNLkfMkMn6Y9k6sOi4LOKHHXuoJBWcHXcUqiEmEd3Py3ZwQe/obXe7S0u43QYwZl08/y47KsFflljgYNZ3plNKVdPL9aJtplF4Ayw/vVfSbU6vJDxVA0qdbAjcaaPH3Gy+envUffXc+Lm+6eTkbPJq5e2N875vaM4cXKJWYnosbm7X+GM1S7whLSmGctmIXJg0OhIH+xhM2yVKTlqdfgkglewhUQdwXm5w3O807iNzG3oO6WpX/2tSax71QL58gK7XhDN/KEJqMLwpCcURx44ZnpVKtrxqiUYf2ycQcJNT+etRDrYHdRwEqF 2022 "
-}
+//resource "aws_key_pair" "deployer" {
+  //key_name   = "work"
+  //public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC75EQOHWoSpOuiWYureIl4kUz6qd7/jNLkfMkMn6Y9k6sOi4LOKHHXuoJBWcHXcUqiEmEd3Py3ZwQe/obXe7S0u43QYwZl08/y47KsFflljgYNZ3plNKVdPL9aJtplF4Ayw/vVfSbU6vJDxVA0qdbAjcaaPH3Gy+envUffXc+Lm+6eTkbPJq5e2N875vaM4cXKJWYnosbm7X+GM1S7whLSmGctmIXJg0OhIH+xhM2yVKTlqdfgkglewhUQdwXm5w3O807iNzG3oO6WpX/2tSax71QL58gK7XhDN/KEJqMLwpCcURx44ZnpVKtrxqiUYf2ycQcJNT+etRDrYHdRwEqF 2022 "
+//}
