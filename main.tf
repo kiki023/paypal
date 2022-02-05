@@ -6,15 +6,14 @@ terraform {
       source  = "gavinbunney/kubectl"
       version = ">= 1.7.0"
       
-  terraform {
-    backend "s3" {
-      bucket         = "camchi"
-      key            = "terraform.tfstate"
-      region         = "us-west-1"
-      dynamodb_table = "camchi1"
+  backend "s3" {
+    bucket         = "camchi"
+    key            = "terraform.tfstate"
+    region         = "us-west-1"
+    dynamodb_table = "camchi1"
   
-    }
-  }
+   }
+ }
   
 
   cloud {
