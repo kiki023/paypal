@@ -1,5 +1,0 @@
-#!/bin/sh
-echo hello and welcome
-read name
-echo please confirm your pin $name
-
